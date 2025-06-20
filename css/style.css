@@ -75,12 +75,6 @@ header {
 
 
     /* Pseudo-Klasse für Hover-Effekt */
-    :hover,
-    :focus {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-        outline: none;
-    }
 }
 
 
