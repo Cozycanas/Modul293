@@ -1,0 +1,272 @@
+/* CSS-Variablen für einheitliches Design */
+:root {
+    --primary-color: #2c3e50;
+    /* Dunkles Blau/Grau */
+    --secondary-color: #3498db;
+    /* Helles Blau */
+    --accent-color: #e74c3c;
+    /* Rot als Akzent */
+    --background-color: #ecf0f1;
+    /* Sehr helles Grau */
+    --text-color: #34495e;
+    /* Dunkles Grau für Text */
+    --light-text-color: #ffffff;
+    --border-color: #bdc3c7;
+    --container-width: 960px;
+    --base-font-size: 16px;
+    --heading-font-family: 'Arial', sans-serif;
+    /* Beispiel, kann geändert werden */
+    --body-font-family: 'Georgia', serif;
+    /* Beispiel, kann geändert werden */
+    --spacing-unit: 1rem;
+    /* 16px, wenn base-font-size 16px ist */
+}
+
+/* Globale Resets und Basis-Stile */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font-family);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container für zentrierten Inhalt */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-unit);
+}
+
+/* Header-Styling */
+header {
+    color: var(--light-text-color);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+
+    /* Nesting für Header-spezifische Elemente */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: var(--heading-font-family);
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+
+    /* Pseudo-Klasse für Hover-Effekt */
+    :hover,
+    :focus {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        outline: none;
+    }
+}
+
+
+/* Main Content Styling */
+main {
+    flex-grow: 1;
+    /* Sorgt dafür, dass der Main-Bereich den verfügbaren Platz einnimmt */
+}
+
+.content-section {
+    background-color: var(--light-text-color);
+    padding: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* Nesting für Elemente innerhalb einer .content-section */
+    h2 {
+        font-family: var(--heading-font-family);
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-unit);
+        padding-bottom: calc(var(--spacing-unit) / 2);
+        border-bottom: 2px solid var(--secondary-color);
+    }
+
+    article p,
+    article ul,
+    article ol,
+    article table {
+        margin-bottom: var(--spacing-unit);
+    }
+
+    /* Styling für Listen innerhalb von Artikeln */
+    article ul,
+    article ol {
+        padding-left: calc(var(--spacing-unit) * 2);
+        /* Einrückung für Listenpunkte */
+    }
+
+    article ul li::marker {
+        /* Styling der List-Marker (moderner Ansatz) */
+        color: var(--secondary-color);
+    }
+
+    article ol li::marker {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    /* Gezieltes Styling für das erste p-Element nach einem h2 */
+    h2+article>p:first-child {
+        font-style: italic;
+        color: #555;
+    }
+}
+
+/* Spezifische Selektoren und Deklarationen */
+#personalien ul li strong {
+    color: var(--primary-color);
+}
+
+#personalien em {
+    /* Beispiel für Typ-Selektor kombiniert mit ID-Nachkommen */
+    color: var(--accent-color);
+    font-style: normal;
+    /* Überschreibt Standard-Kursiv für dieses spezielle em */
+}
+
+/* Tabellen-Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-unit);
+
+    th,
+    td {
+        border: 1px solid var(--border-color);
+        padding: calc(var(--spacing-unit) / 2);
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        color: var(--light-text-color);
+        font-family: var(--heading-font-family);
+    }
+
+    /* Pseudo-Klasse für abwechselnde Zeilenfarben */
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #e9e9e9;
+    }
+}
+
+/* Styling für hervorgehobenen Text und Zitate */
+mark {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+q {
+    font-style: italic;
+    quotes: "«" "»" "‹" "›";
+    /* Deutsche Anführungszeichen */
+    display: block;
+    /* Damit das Zitat einen eigenen Block einnimmt */
+    margin: var(--spacing-unit) 0;
+    padding: var(--spacing-unit);
+    background-color: #f8f9fa;
+    border-left: 5px solid var(--secondary-color);
+
+    /* Pseudo-Elemente für die Anführungszeichen, falls nicht vom Browser unterstützt */
+    ::before {
+        content: open-quote;
+        font-weight: bold;
+        color: var(--secondary-color);
+    }
+
+    ::after {
+        content: close-quote;
+        font-weight: bold;
+        color: var(--secondary-color);
+    }
+}
+
+/* Styling für Code-Blöcke und Inline-Code */
+pre {
+    background-color: #2d2d2d;
+    /* Dunkler Hintergrund für Code */
+    color: #f0f0f0;
+    /* Heller Text für Code */
+    padding: var(--spacing-unit);
+    border-radius: 5px;
+    overflow-x: auto;
+    /* Scrollbalken, falls Code zu breit ist */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    margin: var(--spacing-unit) 0;
+}
+
+code {
+    /* Gilt für <pre><code> und inline <code> */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.inline-code {
+    /* Spezielles Styling für Inline-Code, falls abweichend gewünscht */
+    background-color: #e0e0e0;
+    color: var(--accent-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+
+/* Footer-Styling */
+footer {
+    background-color: var(--text-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 1.5) 0;
+    margin-top: auto;
+    /* Sorgt dafür, dass der Footer am unteren Rand bleibt, wenn der Inhalt nicht ausreicht */
+
+    /* Nesting für Elemente im Footer */
+    p {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+}
+
+/* Kombinierter Selektor: Alle p Elemente, die direkte Kinder eines article sind,
+   das sich wiederum in einer section mit der ID "hobbys" befindet. */
+#hobbys>article>p {
+    line-height: 1.7;
+}
+
+/* Pseudo-Selektor: Letztes li-Element in der Hobby-Liste */
+#hobbys ol li:last-child {
+    font-weight: bold;
+    /* Nur als Beispiel, um den Selektor zu demonstrieren */
+}
