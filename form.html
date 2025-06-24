@@ -1,90 +1,168 @@
-<form>
-  <!-- Einfachauswahl (Radio) -->
-  <!-- required: Auswahl ist Pflicht -->
-  <div>
-    <label>Anrede *</label>
-    <input type="radio" name="anrede" value="Frau" required /> Frau
-    <input type="radio" name="anrede" value="Herr" /> Herr
-  </div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- Textfeld -->
-  <!-- minlength, maxlength, required, autofocus, placeholder, value -->
-  <div>
-    <label>Vorname *</label>
-    <input type="text" name="vorname" minlength="1" maxlength="100" required autofocus placeholder="Max" value="Max" />
-  </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+</head>
 
-  <!-- Langer Text (Textarea) -->
-  <!-- maxlength, placeholder -->
-  <div>
-    <label>Nachricht</label>
-    <textarea name="nachricht" maxlength="500" placeholder="Ihre Nachricht..."></textarea>
-  </div>
+<body>
+  <header>
+    <nav class="bg-light">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="form.html">Formular</a></li>
+        <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+        <li class="nav-item"><a class="nav-link" href="ligmasigma.html">Steckbrief</a></li>
+        <li class="nav-item"><a class="nav-link" href="links.html">Links</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Zahl -->
-  <!-- min, max, required, value, readonly -->
-  <div>
-    <label>Alter *</label>
-    <input type="number" name="alter" min="0" max="120" required value="18" readonly />
-  </div>
+  <main class="container my-4">
+    <form action="https://gibm.becknet.ch/formular/formular.php" method="post">
+      <!-- Einfachauswahl (Radio) für Anrede -->
+      <div class="mb-3">
+      <label class="form-label">Anrede *</label>
+      <div>
+        <div class="form-check form-check-inline">
+        <!-- required: Auswahl zwingend, value: Wert beim Absenden -->
+        <input type="radio" name="anrede" id="frau" value="Frau" class="form-check-input" required />
+        <label for="frau" class="form-check-label">Frau</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input type="radio" name="anrede" id="herr" value="Herr" class="form-check-input" />
+        <label for="herr" class="form-check-label">Herr</label>
+        </div>
+      </div>
+      </div>
 
-  <!-- Datum -->
-  <!-- required, value, min, max -->
-  <div>
-    <label>Geburtsdatum *</label>
-    <input type="date" name="geburtsdatum" required min="1900-01-01" max="2024-12-31" value="2000-01-01" />
-  </div>
+      <!-- Textfeld für Vorname -->
+      <div class="mb-3">
+      <!-- required: Pflichtfeld, minlength/maxlength: Zeichenbegrenzung, autofocus: Cursor beim Laden, placeholder: Platzhaltertext -->
+      <label for="vorname" class="form-label">Vorname *</label>
+      <input type="text" id="vorname" name="vorname" minlength="1" maxlength="100" required autofocus placeholder="Max" class="form-control" />
+      </div>
 
-  <!-- Passwort -->
-  <!-- minlength, required, pattern, autocomplete -->
-  <div>
-    <label>Passwort *</label>
-    <input type="password" name="passwort" minlength="8" required pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" autocomplete="new-password" />
-  </div>
+      <!-- Textfeld für Nachname -->
+      <div class="mb-3">
+      <label for="nachname" class="form-label">Nachname *</label>
+      <input type="text" id="nachname" name="nachname" minlength="1" maxlength="100" required placeholder="Mustermann" class="form-control" />
+      </div>
 
-  <!-- Email -->
-  <!-- required, pattern, placeholder -->
-  <div>
-    <label>Email *</label>
-    <input type="email" name="email" required placeholder="beispiel@mail.com" pattern=".+@.+\..+" />
-  </div>
+      <!-- Textfeld für Strasse -->
+      <div class="mb-3">
+      <!-- readonly: Nur lesbar, value: Vorgabewert -->
+      <label for="strasse" class="form-label">Strasse</label>
+      <input type="text" id="strasse" name="Strasse" class="form-control" value="Musterstrasse 1" readonly />
+      </div>
 
-  <!-- URL -->
-  <!-- placeholder, pattern -->
-  <div>
-    <label>Website</label>
-    <input type="url" name="website" placeholder="https://example.com" pattern="https?://.+" />
-  </div>
+      <!-- Zahl (PLZ) und Text (Ort) -->
+      <div class="row mb-3">
+      <div class="col-md-3">
+        <!-- disabled: Nicht editierbar, value: Vorgabewert, maxlength: max. Zeichen -->
+        <label for="plz" class="form-label" >PLZ *</label>
+        <input type="number" name="PLZ" id="plz" maxlength="4" required class="form-control" disabled value="5312" min="1000" max="9999"/>
+      </div>
+      <div class="col-md-6">
+        <label for="ort" class="form-label">Ort</label>
+        <input type="text" name="Ort" id="ort" class="form-control" size="20" />
+      </div>
+      </div>
 
-  <!-- Telefon -->
-  <!-- required, pattern, size -->
-  <div>
-    <label>Telefon *</label>
-    <input type="tel" name="telefon" required pattern="^0\d{9}$" size="12" />
-  </div>
+      <!-- Datum -->
+      <div class="mb-3">
+      <!-- type="date": Datumsauswahl -->
+      <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
+      <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-control" min="1900-01-01" max="2024-12-31"/>
+      </div>
 
-  <!-- Dropdown (Select) -->
-  <!-- required -->
-  <div>
-    <label>Rolle *</label>
-    <select name="rolle" required>
-      <option value="">Bitte wählen</option>
-      <option value="admin">Admin</option>
-      <option value="user">User</option>
-    </select>
-  </div>
+      <!-- Dropdown (Select) -->
+      <div class="mb-3">
+      <label for="rizz" class="form-label">Rizz</label>
+      <select id="rizz" name="rizz" class="form-select">
+        <option value="loser">loser</option>
+        <option value="beta">beta</option>
+        <option value="alpha">alpha</option>
+        <option value="ligma">ligma</option>
+        <option value="sigma">sigma</option>
+      </select>
+      </div>
 
-  <!-- Mehrfachauswahl (Checkboxen) -->
-  <div>
-    <label>Interessen</label>
-    <input type="checkbox" name="interessen" value="Sport" /> Sport
-    <input type="checkbox" name="interessen" value="Musik" /> Musik
-  </div>
+      <!-- Telefon -->
+      <div class="mb-3">
+      <!-- type="tel": Telefonnummer, required: Pflichtfeld, pattern: Formatprüfung -->
+      <label for="telefon" class="form-label">Telefon *</label>
+      <input type="tel" id="telefon" name="telefon" required class="form-control" pattern="^\+?\d{9,15}$" placeholder="+41791234567" />
+      </div>
 
-  <!-- Weitere Attribute: disabled -->
-  <div>
-    <label>Nur lesen</label>
-    <input type="text" value="readonly" readonly />
-    <input type="text" value="disabled" disabled />
-  </div>
-</form>
+      <!-- Email -->
+      <div class="mb-3">
+      <!-- type="email": Email-Validierung, required: Pflichtfeld -->
+      <label for="email" class="form-label">Email *</label>
+      <input type="email" id="email" name="email" required class="form-control" placeholder="name@example.com" />
+      </div>
+
+      <!-- Passwort -->
+      <div class="mb-3">
+      <!-- type="password": Versteckte Eingabe, minlength/pattern: Komplexitätsprüfung, autocomplete: kein Autovervollständigen -->
+      <label for="passwort" class="form-label">Passwort *</label>
+      <input type="password" id="passwort" name="passwort" class="form-control" minlength="8" required
+        autocomplete="new-password"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
+        title="Mindestens 8 Zeichen, mit Groß- und Kleinbuchstaben, einer Zahl und einem Sonderzeichen"
+        placeholder="Passwort eingeben" />
+      <div class="form-text">
+        Mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.
+      </div>
+      </div>
+
+      <!-- Langer Text (Textarea) -->
+      <div class="mb-3">
+      <!-- textarea: Mehrzeiliger Text, maxlength: Zeichenbegrenzung, placeholder: Hinweistext -->
+      <label for="nachricht" class="form-label">Nachricht</label>
+      <textarea name="Nachricht" id="nachricht" class="form-control" maxlength="500" placeholder="Ihre Nachricht..."></textarea>
+      </div>
+
+      <!-- Mehrfachauswahl (Checkbox) Beispiel -->
+      <div class="mb-3">
+      <label class="form-label">Interessen</label>
+      <div>
+        <!-- Checkbox: Mehrfachauswahl möglich, value: Wert beim Absenden -->
+        <div class="form-check form-check-inline">
+        <input type="checkbox" id="interesse1" name="interessen[]" value="Sport" class="form-check-input" />
+        <label for="interesse1" class="form-check-label">Sport</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input type="checkbox" id="interesse2" name="interessen[]" value="Musik" class="form-check-input" />
+        <label for="interesse2" class="form-check-label">Musik</label>
+        </div>
+      </div>
+      </div>
+
+      <!-- URL Feld Beispiel -->
+      <div class="mb-3">
+      <!-- type="url": URL-Validierung, placeholder: Beispiel-URL -->
+      <label for="website" class="form-label">Website</label>
+      <input type="url" id="website" name="website" class="form-control" placeholder="https://example.com" />
+      </div>
+
+      <!-- Abschick und Reset Knopf -->
+      <div class="mb-3">
+      <input type="submit" class="btn btn-primary" value="Senden" />
+      <input type="reset" class="btn btn-secondary" value="Löschen" />
+      </div>
+    </form></div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
