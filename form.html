@@ -1,135 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+<form>
+  <!-- Einfachauswahl (Radio) -->
+  <!-- required: Auswahl ist Pflicht -->
+  <div>
+    <label>Anrede *</label>
+    <input type="radio" name="anrede" value="Frau" required /> Frau
+    <input type="radio" name="anrede" value="Herr" /> Herr
+  </div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
-</head>
+  <!-- Textfeld -->
+  <!-- minlength, maxlength, required, autofocus, placeholder, value -->
+  <div>
+    <label>Vorname *</label>
+    <input type="text" name="vorname" minlength="1" maxlength="100" required autofocus placeholder="Max" value="Max" />
+  </div>
 
-<body>
-  <header>
-    <nav class="bg-light">
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="index.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="form.html">Formular</a></li>
-        <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
-        <li class="nav-item"><a class="nav-link" href="ligmasigma.html">Steckbrief</a></li>
-        <li class="nav-item"><a class="nav-link" href="links.html">Links</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Langer Text (Textarea) -->
+  <!-- maxlength, placeholder -->
+  <div>
+    <label>Nachricht</label>
+    <textarea name="nachricht" maxlength="500" placeholder="Ihre Nachricht..."></textarea>
+  </div>
 
-  <main class="container my-4">
-    <form action="https://gibm.becknet.ch/formular/formular.php" method="post">
-      <!-- Anrede Feld -->
-      <div class="mb-3">
-        <label class="form-label">Anrede *</label>
-        <div>
-          <div class="form-check form-check-inline">
-            <input type="radio" name="anrede" id="frau" value="Frau" class="form-check-input" />
-            <label for="frau" class="form-check-label">Frau</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="radio" name="anrede" id="herr" value="Herr" class="form-check-input" />
-            <label for="herr" class="form-check-label">Herr</label>
-          </div>
-        </div>
-      </div>
+  <!-- Zahl -->
+  <!-- min, max, required, value, readonly -->
+  <div>
+    <label>Alter *</label>
+    <input type="number" name="alter" min="0" max="120" required value="18" readonly />
+  </div>
 
-      <!-- Name Feld -->
-      <div class="mb-3">
-        <label for="vorname" class="form-label">Vorname *</label>
-        <input type="text" id="vorname" name="vorname" minlength="1" maxlength="100" required class="form-control" />
-      </div>
+  <!-- Datum -->
+  <!-- required, value, min, max -->
+  <div>
+    <label>Geburtsdatum *</label>
+    <input type="date" name="geburtsdatum" required min="1900-01-01" max="2024-12-31" value="2000-01-01" />
+  </div>
 
-      <!-- Nachname Feld -->
-      <div class="mb-3">
-        <label for="nachname" class="form-label">Nachname *</label>
-        <input type="text" id="nachname" name="nachname" minlength="1" maxlength="100" required class="form-control" />
-      </div>
+  <!-- Passwort -->
+  <!-- minlength, required, pattern, autocomplete -->
+  <div>
+    <label>Passwort *</label>
+    <input type="password" name="passwort" minlength="8" required pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" autocomplete="new-password" />
+  </div>
 
-      <!-- Strasse Feld -->
-      <div class="mb-3">
-        <label for="strasse" class="form-label">Strasse</label>
-        <input type="text" id="strasse" name="Strasse" class="form-control" />
-      </div>
+  <!-- Email -->
+  <!-- required, pattern, placeholder -->
+  <div>
+    <label>Email *</label>
+    <input type="email" name="email" required placeholder="beispiel@mail.com" pattern=".+@.+\..+" />
+  </div>
 
-      <!-- PLZ und Ort Feld -->
-      <div class="row mb-3">
-        <div class="col-md-3">
-          <label for="plz" class="form-label" >PLZ *</label>
-          <input type="text" name="PLZ" id="plz" maxlength="4" required class="form-control" disabled value="5312"/>
-        </div>
-        <div class="col-md-6">
-          <label for="ort" class="form-label">Ort</label>
-          <input type="text" name="Ort" id="ort" class="form-control" />
-        </div>
-      </div>
+  <!-- URL -->
+  <!-- placeholder, pattern -->
+  <div>
+    <label>Website</label>
+    <input type="url" name="website" placeholder="https://example.com" pattern="https?://.+" />
+  </div>
 
-      <!-- Geburtsdatum Feld -->
-      <div class="mb-3">
-        <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
-        <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-control" />
-      </div>
+  <!-- Telefon -->
+  <!-- required, pattern, size -->
+  <div>
+    <label>Telefon *</label>
+    <input type="tel" name="telefon" required pattern="^0\d{9}$" size="12" />
+  </div>
 
-      <!-- Rizz Feld -->
-      <div class="mb-3">
-        <label for="rizz" class="form-label">Rizz</label>
-        <select id="rizz" name="rizz" class="form-select">
-          <option value="loser">loser</option>
-          <option value="beta">beta</option>
-          <option value="alpha">alpha</option>
-          <option value="ligma">ligma</option>
-          <option value="sigma">sigma</option>
-        </select>
-      </div>
+  <!-- Dropdown (Select) -->
+  <!-- required -->
+  <div>
+    <label>Rolle *</label>
+    <select name="rolle" required>
+      <option value="">Bitte wählen</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+  </div>
 
-      <!-- Telefon Feld -->
-      <div class="mb-3">
-        <label for="telefon" class="form-label">Telefon *</label>
-        <input type="tel" id="telefon" name="telefon" required class="form-control" />
-      </div>
+  <!-- Mehrfachauswahl (Checkboxen) -->
+  <div>
+    <label>Interessen</label>
+    <input type="checkbox" name="interessen" value="Sport" /> Sport
+    <input type="checkbox" name="interessen" value="Musik" /> Musik
+  </div>
 
-      <!-- Email Feld -->
-      <div class="mb-3">
-        <label for="email" class="form-label">Email *</label>
-        <input type="email" id="email" name="email" required class="form-control" />
-      </div>
-
-      <!-- Passwort Feld -->
-      <div class="mb-3">
-        <label for="passwort" class="form-label">Passwort *</label>
-        <input type="password" id="passwort" name="passwort" class="form-control" minlength="8" required
-          autocomplete="new-password"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
-          title="Mindestens 8 Zeichen, mit Groß- und Kleinbuchstaben, einer Zahl und einem Sonderzeichen" />
-        <div class="form-text">
-          Mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.
-        </div>
-      </div>
-
-      <!-- Nachricht Feld -->
-      <div class="mb-3">
-        <label for="nachricht" class="form-label">Nachricht</label>
-        <textarea name="Nachricht" id="nachricht" class="form-control"></textarea>
-      </div>
-
-      <!-- Abschick und Reset Knopf -->
-      <div class="mb-3">
-        <input type="submit" class="btn btn-primary" value="Senden" />
-        <input type="reset" class="btn btn-secondary" value="Löschen" />
-      </div>
-    </form>
-  </main>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+  <!-- Weitere Attribute: disabled -->
+  <div>
+    <label>Nur lesen</label>
+    <input type="text" value="readonly" readonly />
+    <input type="text" value="disabled" disabled />
+  </div>
+</form>
