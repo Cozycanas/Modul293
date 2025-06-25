@@ -1,7 +1,61 @@
-body{
+.grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 300px 300px 300px;
-    grid-template-areas: 
-        ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10px 300px 300px 300px;
+    gap: 1em;
+    grid-template-areas:
+        "nav nav"
+        "RocheTuerme Audio-Element"
+        "MC-Anleitung Charlie-Video"
+        "Googlemaps-Karte Googlemaps-Karte";
+}
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        grid-template-areas:
+            "nav"
+            "RocheTuerme"
+            "Audio-Element"
+            "MC-Anleitung"
+            "Charlie-Video"
+            "Googlemaps-Karte";
+    }
+}
+
+nav {
+    display: flex;
+    grid-area: nav;
+}
+
+.RocheTuerme {
+    display: flex;
+    grid-area: RocheTuerme;
+    object-fit: cover;
+}
+
+.Audio-Element {
+    display: flex;
+    gap: 1em; 
+    flex-wrap: wrap;
+    grid-area: Audio-Element;
+}
+
+.MC-Anleitung {
+    display: flex;
+    grid-area: MC-Anleitung;
+}
+
+.Charlie-Video {
+    display: flex;
+    grid-area: Charlie-Video;
+}
+
+.Googlemaps-Karte {
+    display: flex;
+    grid-area: Googlemaps-Karte;
+}
+
+@media (max-width: 600px) {
+    
 }
