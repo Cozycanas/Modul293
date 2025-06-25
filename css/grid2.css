@@ -1,18 +1,22 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10px 300px 300px 300px;
-    gap: 1em;
+    grid-template-rows: 10px 500px 500px 500px;
+    gap: 2em;
+    margin: 2em;
     grid-template-areas:
         "nav nav"
         "RocheTuerme Audio-Element"
         "MC-Anleitung Charlie-Video"
         "Googlemaps-Karte Googlemaps-Karte";
 }
-@media (max-width: 600px) {
+
+@media (max-width: 992px) {
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, auto);
+        gap: 2em;
+        margin: 2em;
         grid-template-areas:
             "nav"
             "RocheTuerme"
@@ -36,7 +40,7 @@ nav {
 
 .Audio-Element {
     display: flex;
-    gap: 1em; 
+    gap: 4em;
     flex-wrap: wrap;
     grid-area: Audio-Element;
 }
@@ -56,6 +60,4 @@ nav {
     grid-area: Googlemaps-Karte;
 }
 
-@media (max-width: 600px) {
-    
-}
+@media (max-width: 600px) {}
