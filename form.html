@@ -8,18 +8,29 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header>
-    <nav class="bg-light">
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="index.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="form.html">Formular</a></li>
-        <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
-        <li class="nav-item"><a class="nav-link" href="ligmasigma.html">Steckbrief</a></li>
-        <li class="nav-item"><a class="nav-link" href="links.html">Links</a></li>
-      </ul>
+    <h1 class="TitelText">Samuel Schmid – Formular</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="images/logo.png" class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Main</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Formular</a></li>
+            <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+            <li class="nav-item"><a class="nav-link" href="ligmasigma.html">Steckbrief</a></li>
+            <li class="nav-item"><a class="nav-link" href="links.html">Links</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -27,137 +38,143 @@
     <form action="https://gibm.becknet.ch/formular/formular.php" method="post">
       <!-- Einfachauswahl (Radio) für Anrede -->
       <div class="mb-3">
-      <label class="form-label">Anrede *</label>
-      <div>
-        <div class="form-check form-check-inline">
-        <!-- required: Auswahl zwingend, value: Wert beim Absenden -->
-        <input type="radio" name="anrede" id="frau" value="Frau" class="form-check-input" required />
-        <label for="frau" class="form-check-label">Frau</label>
+        <label class="form-label">Anrede *</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <!-- required: Auswahl zwingend, value: Wert beim Absenden -->
+            <input type="radio" name="anrede" id="frau" value="Frau" class="form-check-input" required />
+            <label for="frau" class="form-check-label">Frau</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="anrede" id="herr" value="Herr" class="form-check-input" />
+            <label for="herr" class="form-check-label">Herr</label>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input type="radio" name="anrede" id="herr" value="Herr" class="form-check-input" />
-        <label for="herr" class="form-check-label">Herr</label>
-        </div>
-      </div>
       </div>
 
       <!-- Textfeld für Vorname -->
       <div class="mb-3">
-      <!-- required: Pflichtfeld, minlength/maxlength: Zeichenbegrenzung, autofocus: Cursor beim Laden, placeholder: Platzhaltertext -->
-      <label for="vorname" class="form-label">Vorname *</label>
-      <input type="text" id="vorname" name="vorname" minlength="1" maxlength="100" required autofocus placeholder="Max" class="form-control" />
+        <!-- required: Pflichtfeld, minlength/maxlength: Zeichenbegrenzung, autofocus: Cursor beim Laden, placeholder: Platzhaltertext -->
+        <label for="vorname" class="form-label">Vorname *</label>
+        <input type="text" id="vorname" name="vorname" minlength="1" maxlength="100" required autofocus
+          placeholder="Max" class="form-control" />
       </div>
 
       <!-- Textfeld für Nachname -->
       <div class="mb-3">
-      <label for="nachname" class="form-label">Nachname *</label>
-      <input type="text" id="nachname" name="nachname" minlength="1" maxlength="100" required placeholder="Mustermann" class="form-control" />
+        <label for="nachname" class="form-label">Nachname *</label>
+        <input type="text" id="nachname" name="nachname" minlength="1" maxlength="100" required placeholder="Mustermann"
+          class="form-control" />
       </div>
 
       <!-- Textfeld für Strasse -->
       <div class="mb-3">
-      <!-- readonly: Nur lesbar, value: Vorgabewert -->
-      <label for="strasse" class="form-label">Strasse</label>
-      <input type="text" id="strasse" name="Strasse" class="form-control" value="Musterstrasse 1" readonly />
+        <!-- readonly: Nur lesbar, value: Vorgabewert -->
+        <label for="strasse" class="form-label">Strasse</label>
+        <input type="text" id="strasse" name="Strasse" class="form-control" value="Musterstrasse 1" readonly />
       </div>
 
       <!-- Zahl (PLZ) und Text (Ort) -->
       <div class="row mb-3">
-      <div class="col-md-3">
-        <!-- disabled: Nicht editierbar, value: Vorgabewert, maxlength: max. Zeichen -->
-        <label for="plz" class="form-label" >PLZ *</label>
-        <input type="number" name="PLZ" id="plz" maxlength="4" required class="form-control" disabled value="5312" min="1000" max="9999"/>
-      </div>
-      <div class="col-md-6">
-        <label for="ort" class="form-label">Ort</label>
-        <input type="text" name="Ort" id="ort" class="form-control" 
-         />
-      </div>
+        <div class="col-md-3">
+          <!-- disabled: Nicht editierbar, value: Vorgabewert, maxlength: max. Zeichen -->
+          <label for="plz" class="form-label">PLZ *</label>
+          <input type="number" name="PLZ" id="plz" maxlength="4" required class="form-control" disabled value="5312"
+            min="1000" max="9999" />
+        </div>
+        <div class="col-md-6">
+          <label for="ort" class="form-label">Ort</label>
+          <input type="text" name="Ort" id="ort" class="form-control" />
+        </div>
       </div>
 
       <!-- Datum -->
       <div class="mb-3">
-      <!-- type="date": Datumsauswahl -->
-      <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
-      <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-control" min="1900-01-01" max="2024-12-31"/>
+        <!-- type="date": Datumsauswahl -->
+        <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
+        <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-control" min="1900-01-01"
+          max="2024-12-31" />
       </div>
 
       <!-- Dropdown (Select) -->
       <div class="mb-3">
-      <label for="rizz" class="form-label">Rizz</label>
-      <select id="rizz" name="rizz" class="form-select">
-        <option value="loser">loser</option>
-        <option value="beta">beta</option>
-        <option value="alpha">alpha</option>
-        <option value="ligma">ligma</option>
-        <option value="sigma">sigma</option>
-      </select>
+        <label for="rizz" class="form-label">Rizz</label>
+        <select id="rizz" name="rizz" class="form-select">
+          <option value="loser">loser</option>
+          <option value="beta">beta</option>
+          <option value="alpha">alpha</option>
+          <option value="ligma">ligma</option>
+          <option value="sigma">sigma</option>
+        </select>
       </div>
 
       <!-- Telefon -->
       <div class="mb-3">
-      <!-- type="tel": Telefonnummer, required: Pflichtfeld, pattern: Formatprüfung -->
-      <label for="telefon" class="form-label">Telefon *</label>
-      <input type="tel" id="telefon" name="telefon" required class="form-control" pattern="^\+?\d{9,15}$" placeholder="+41791234567" />
+        <!-- type="tel": Telefonnummer, required: Pflichtfeld, pattern: Formatprüfung -->
+        <label for="telefon" class="form-label">Telefon *</label>
+        <input type="tel" id="telefon" name="telefon" required class="form-control" pattern="^\+?\d{9,15}$"
+          placeholder="+41791234567" />
       </div>
 
       <!-- Email -->
       <div class="mb-3">
-      <!-- type="email": Email-Validierung, required: Pflichtfeld -->
-      <label for="email" class="form-label">Email *</label>
-      <input type="email" id="email" name="email" required class="form-control" placeholder="name@example.com" />
+        <!-- type="email": Email-Validierung, required: Pflichtfeld -->
+        <label for="email" class="form-label">Email *</label>
+        <input type="email" id="email" name="email" required class="form-control" placeholder="name@example.com" />
       </div>
 
       <!-- Passwort -->
       <div class="mb-3">
-      <!-- type="password": Versteckte Eingabe, minlength/pattern: Komplexitätsprüfung, autocomplete: kein Autovervollständigen -->
-      <label for="passwort" class="form-label">Passwort *</label>
-      <input type="password" id="passwort" name="passwort" class="form-control" minlength="8" required
-        autocomplete="new-password"
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
-        title="Mindestens 8 Zeichen, mit Groß- und Kleinbuchstaben, einer Zahl und einem Sonderzeichen"
-        placeholder="Passwort eingeben" />
-      <div class="form-text">
-        Mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.
-      </div>
+        <!-- type="password": Versteckte Eingabe, minlength/pattern: Komplexitätsprüfung, autocomplete: kein Autovervollständigen -->
+        <label for="passwort" class="form-label">Passwort *</label>
+        <input type="password" id="passwort" name="passwort" class="form-control" minlength="8" required
+          autocomplete="new-password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
+          title="Mindestens 8 Zeichen, mit Groß- und Kleinbuchstaben, einer Zahl und einem Sonderzeichen"
+          placeholder="Passwort eingeben" />
+        <div class="form-text">
+          Mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.
+        </div>
       </div>
 
       <!-- Langer Text (Textarea) -->
       <div class="mb-3">
-      <!-- textarea: Mehrzeiliger Text, maxlength: Zeichenbegrenzung, placeholder: Hinweistext -->
-      <label for="nachricht" class="form-label">Nachricht</label>
-      <textarea name="Nachricht" id="nachricht" class="form-control" maxlength="500" placeholder="Ihre Nachricht..."></textarea>
+        <!-- textarea: Mehrzeiliger Text, maxlength: Zeichenbegrenzung, placeholder: Hinweistext -->
+        <label for="nachricht" class="form-label">Nachricht</label>
+        <textarea name="Nachricht" id="nachricht" class="form-control" maxlength="500"
+          placeholder="Ihre Nachricht..."></textarea>
       </div>
 
       <!-- Mehrfachauswahl (Checkbox) Beispiel -->
       <div class="mb-3">
-      <label class="form-label">Interessen</label>
-      <div>
-        <!-- Checkbox: Mehrfachauswahl möglich, value: Wert beim Absenden -->
-        <div class="form-check form-check-inline">
-        <input type="checkbox" id="interesse1" name="interessen[]" value="Sport" class="form-check-input" />
-        <label for="interesse1" class="form-check-label">Sport</label>
+        <label class="form-label">Interessen</label>
+        <div>
+          <!-- Checkbox: Mehrfachauswahl möglich, value: Wert beim Absenden -->
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="interesse1" name="interessen[]" value="Sport" class="form-check-input" />
+            <label for="interesse1" class="form-check-label">Sport</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="interesse2" name="interessen[]" value="Musik" class="form-check-input" />
+            <label for="interesse2" class="form-check-label">Musik</label>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input type="checkbox" id="interesse2" name="interessen[]" value="Musik" class="form-check-input" />
-        <label for="interesse2" class="form-check-label">Musik</label>
-        </div>
-      </div>
       </div>
 
       <!-- URL Feld Beispiel -->
       <div class="mb-3">
-      <!-- type="url": URL-Validierung, placeholder: Beispiel-URL -->
-      <label for="website" class="form-label">Website</label>
-      <input type="url" id="website" name="website" class="form-control" placeholder="https://example.com" />
+        <!-- type="url": URL-Validierung, placeholder: Beispiel-URL -->
+        <label for="website" class="form-label">Website</label>
+        <input type="url" id="website" name="website" class="form-control" placeholder="https://example.com" />
       </div>
 
       <!-- Abschick und Reset Knopf -->
       <div class="mb-3">
-      <input type="submit" class="btn btn-primary" value="Senden" />
-      <input type="reset" class="btn btn-secondary" value="Löschen" />
+        <input type="submit" class="btn btn-primary" value="Senden" />
+        <input type="reset" class="btn btn-secondary" value="Löschen" />
       </div>
-    </form></div>
+    </form>
+    </div>
   </main>
 
   <!-- Bootstrap JS -->

@@ -11,6 +11,8 @@
         "Googlemaps-Karte Googlemaps-Karte";
 }
 
+/*Hier sorge ich für den Breakpoint, der sicherstellt, 
+dass die applikation auch für kleinere Dimensionen angenehm zu betrachten ist*/
 @media (max-width: 992px) {
     .grid-container {
         grid-template-columns: 1fr;
@@ -25,6 +27,18 @@
             "Charlie-Video"
             "Googlemaps-Karte";
     }
+}
+
+/* Schatteneffekt für alle Container */
+nav,
+.RocheTuerme,
+.Audio-Element,
+.MC-Anleitung,
+.Charlie-Video,
+.Googlemaps-Karte {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    background: #fff;
 }
 
 nav {
